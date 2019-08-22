@@ -1,0 +1,6 @@
+s\s\test\domain\model\Device.class
+s\s\test\domain\HibernateSessionFactoryUtil.class
+s\s\test\web\RestController.class
+s\s\test\web\WebController.class
+s\s\test\domain\model\User.class
+s\s\test\domain\model\DAO\UserDAO.class

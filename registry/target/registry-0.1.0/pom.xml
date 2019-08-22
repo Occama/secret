@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <artifactId>registry</artifactId>
+	
+	<packaging>war</packaging>
+
+	<name>Registry app</name>
+
+	<parent>
+		<groupId>s.s</groupId>
+		<artifactId>LogReg</artifactId>
+		<version>0.1.0</version>
+	</parent>
+
+	<properties>
+		<spring-webmvc-version>5.1.9.RELEASE</spring-webmvc-version>
+		<spring-security-core>5.1.6.RELEASE</spring-security-core>
+		<hibernate-core-version>6.0.0.Alpha2</hibernate-core-version>
+		<spring-context-version>5.1.9.RELEASE</spring-context-version>
+		<maven-war-plugin-version>3.2.3</maven-war-plugin-version>
+		<gson-version>2.8.5</gson-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-context-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-webmvc-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring-security-core}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson-version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin-version}</version>
+				<configuration>
+					<webXml>.\src\main\webapp\WEB-INF\web.xml</webXml>
+					<webResources>
+						<resource>
+							<directory>/</directory>
+							<include>**/*.xml</include>
+						</resource>
+					</webResources>
+					<outputDirectory>D:\work\tomcat\webapps</outputDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

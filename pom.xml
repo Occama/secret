@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>s.s</groupId>
+    <artifactId>LogReg</artifactId>
+	<version>0.1.0</version>
+	
+	<packaging>pom</packaging>
+
+	<name>Secret test project</name>
+	<modules>
+		<module>logging</module>
+		<module>registry</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>mvn-repo</id>
+			<name>Maven Central</name>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mvn-repo</id>
+			<name>Maven Central</name>
+			<url>https://repo1.maven.org/maven2/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring-rabbit-version>2.1.8.RELEASE</spring-rabbit-version>
+		<jetty-maven-plugin-version>9.4.19.v20190610</jetty-maven-plugin-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>${spring-rabbit-version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>${jetty-maven-plugin-version}</version>
+			<configuration>
+				<webApp>
+					<contextPath>/</contextPath>
+				</webApp>
+				<supportedPackagings>
+					<supportedPackaging>jar</supportedPackaging>
+				</supportedPackagings>
+			</configuration>
+		</plugin>
+	</plugins>
+	</build>
+</project>
